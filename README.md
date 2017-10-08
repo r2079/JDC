@@ -13,4 +13,8 @@ for Vsrx trails and Vmx trial case scenarios.
 Tools - I have used EVE-NG instead of vagrant so that many people are using EVE-ng. The supplied topology is only a skeleton, you need to have 
 	junos image or an srx image to suppor the configurations supplied.
 
+I shall be adding more labs as i complete them along, please feel free to suggest and update and add to these labs, so that these are 
+intended to help other members. And strictly, do not request or add any information proprietery to Juniper Networks or its Educational Services
+
+
 Lab1 - IBGP_ADD_PATH lab. 
