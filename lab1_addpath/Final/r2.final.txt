@@ -1,0 +1,27 @@
+set version 14.1R1.10
+set system host-name vmx2
+set system root-authentication encrypted-password "$1$iiqdh9ru$CBQygri2MkpfgtgdGo8GO1"
+set system login user lab uid 2000
+set system login user lab class super-user
+set system login user lab authentication encrypted-password "$1$oW1NeMUu$N7IVMfy8GfJ02jzQzJ39h/"
+set system services telnet connection-limit 5
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set interfaces ge-0/0/1 unit 0 family inet address 1.1.25.2/24
+set interfaces ge-0/0/2 unit 0 family inet address 1.1.23.2/24
+set interfaces ge-0/0/3 unit 0 family inet address 1.1.24.2/24
+set interfaces lo0 unit 0 family inet address 2.2.2.2/32
+set routing-options autonomous-system 100
+set routing-options forwarding-table export export-lb
+set protocols bgp group rr type internal
+set protocols bgp group rr local-address 2.2.2.2
+set protocols bgp group rr cluster 2.2.2.2
+set protocols bgp group rr multipath
+set protocols bgp group rr neighbor 1.1.1.1 family inet unicast add-path send path-count 2
+set protocols bgp group rr neighbor 4.4.4.4
+set protocols bgp group rr neighbor 5.5.5.5
+set protocols bgp group rr neighbor 3.3.3.3
+set protocols ospf area 0.0.0.0 interface all
+set policy-options policy-statement export-lb then load-balance per-packet
